@@ -27,7 +27,7 @@ public class CreateInstructorDemo {
 
 			session.beginTransaction();
 
-			//session.save(instructor);
+			session.save(instructor);
 
 			session.getTransaction().commit();
 		} finally {

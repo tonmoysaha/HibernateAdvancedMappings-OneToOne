@@ -3,9 +3,7 @@ package com.hibernate.one.to.one.mapping.bidirectional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import com.hibernate.mapping.onetoone.entity.unidirectional.Instructor;
-import com.hibernate.mapping.onetoone.entity.unidirectional.InstructorDetailClass;
+import com.hibernate.mapping.onetoone.entity.Bidirectional.*;
 
 public class DeleteInstructorDemo {
 
@@ -21,11 +19,12 @@ public class DeleteInstructorDemo {
 
 			session.beginTransaction();
 
-			int instructorId = 1;
+			int instructorId = 2;
 			//its delete id from both table Instructor && InstructorDetailClass
-			Instructor instructor = session.get(Instructor.class, instructorId);
-			if (instructor != null) {
-				session.delete(instructor);
+			InstructorDetailClass instructorDetailClass = session.get(InstructorDetailClass.class, instructorId);
+			if (instructorDetailClass != null) {
+				session.delete(instructorDetailClass);
+				System.out.println("delete successflly");
 			}else {
 				System.out.println("instructor not found");
 			}

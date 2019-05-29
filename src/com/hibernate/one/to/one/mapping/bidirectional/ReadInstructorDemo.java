@@ -4,10 +4,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.hibernate.mapping.onetoone.entity.unidirectional.Instructor;
-import com.hibernate.mapping.onetoone.entity.unidirectional.InstructorDetailClass;
+import com.hibernate.mapping.onetoone.entity.Bidirectional.Instructor;
+import com.hibernate.mapping.onetoone.entity.Bidirectional.InstructorDetailClass;;
 
-public class CreateInstructorDemo {
+public class ReadInstructorDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,16 +18,17 @@ public class CreateInstructorDemo {
 		Session session = sessionFactory.getCurrentSession();
 
 		try {
-			InstructorDetailClass instructorDetailClass = new InstructorDetailClass(
-					"https://www.youtube.com/watch?v=ZFNTeqj1GDA&list=RDZFNTeqj1GDA&start_radio=1", "love to code");
-			Instructor instructor = new Instructor("opi", "saha", "opi@gmail.com");
-
-			// its also save the instructorDetailClass details
-			instructor.setInstructorDetailClass(instructorDetailClass);
 
 			session.beginTransaction();
 
-			//session.save(instructor);
+			int instructorId = 2;
+			//its delete id from both table Instructor && InstructorDetailClass
+			InstructorDetailClass instructorDetailClass = session.get(InstructorDetailClass.class, instructorId);
+			
+				System.out.println("instructorDetails: " + instructorDetailClass);
+				
+				System.out.println("the associted instructor: " + instructorDetailClass.getInstructor());
+			
 
 			session.getTransaction().commit();
 		} finally {
