@@ -83,4 +83,12 @@ public class Instructor {
 		this.instructorDetailClass = instructorDetailClass;
 	}
 
+	@Override
+	public String toString() {
+		return "Instructor [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email
+				+ ", instructorDetailClass=" + instructorDetailClass + "]";
+	}
+	
+	
+
 }
