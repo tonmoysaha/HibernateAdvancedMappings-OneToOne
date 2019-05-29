@@ -1,4 +1,4 @@
-package com.hibernate.mapping.entity;
+package com.hibernate.mapping.onetoone.entity.unidirectional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

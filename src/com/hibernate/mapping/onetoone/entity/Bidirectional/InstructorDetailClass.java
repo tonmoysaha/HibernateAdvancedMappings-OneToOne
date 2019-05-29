@@ -1,10 +1,12 @@
-package com.hibernate.mapping.entity;
+package com.hibernate.mapping.onetoone.entity.Bidirectional;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,9 @@ public class InstructorDetailClass {
 
 	@Column(name = "hobby")
 	private String hobby;
+
+	@OneToOne(mappedBy = "instructorDetailClass", cascade = CascadeType.ALL)
+	private Instructor instructor;
 
 	public InstructorDetailClass() {
 		super();
@@ -56,11 +61,17 @@ public class InstructorDetailClass {
 		this.hobby = hobby;
 	}
 
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+
 	@Override
 	public String toString() {
 		return "InstructorDetailClass [id=" + id + ", youtube_channel=" + youtube_channel + ", hobby=" + hobby + "]";
 	}
-	
-	
 
 }

@@ -1,11 +1,11 @@
-package com.hibernate.one.to.one.mapping;
+package com.hibernate.one.to.one.mapping.bidirectional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.hibernate.mapping.entity.Instructor;
-import com.hibernate.mapping.entity.InstructorDetailClass;
+import com.hibernate.mapping.onetoone.entity.unidirectional.Instructor;
+import com.hibernate.mapping.onetoone.entity.unidirectional.InstructorDetailClass;
 
 public class DeleteInstructorDemo {
 
