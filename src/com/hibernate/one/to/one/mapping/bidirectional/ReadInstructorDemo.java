@@ -21,7 +21,7 @@ public class ReadInstructorDemo {
 
 			session.beginTransaction();
 
-			int instructorId = 2;
+			int instructorId = 3444;
 			//its delete id from both table Instructor && InstructorDetailClass
 			InstructorDetailClass instructorDetailClass = session.get(InstructorDetailClass.class, instructorId);
 			
@@ -31,9 +31,13 @@ public class ReadInstructorDemo {
 			
 
 			session.getTransaction().commit();
+		}catch (Exception e) {
+			e.printStackTrace();
 		} finally {
-			// TODO: handle finally clause
+			// handle leak issue
+			session.close();
 			sessionFactory.close();
+		
 		}
 
 	}
